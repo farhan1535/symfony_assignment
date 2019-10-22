@@ -1,0 +1,12 @@
+{% extends 'Layout/layout.html.twig' %}
+{% block title %}
+    login
+{% endblock %}
+{% block page_header %}
+    Login
+{% endblock %}
+{% block content %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

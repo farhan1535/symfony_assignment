@@ -1,0 +1,21 @@
+{% extends 'Layout/layout.html.twig' %}
+{% block title %}
+    create user
+{% endblock %}
+{% block add_jquery %}
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    <script src="JavaScript/date_picker.js"></script>
+{% endblock %}
+{% block add_css %}
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+    <link href="{{ asset('css/create_user.css') }}" rel="stylesheet">
+{% endblock %}
+{% block page_header %}
+    create a user
+{% endblock %}
+{% block content %}
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+{% endblock %}

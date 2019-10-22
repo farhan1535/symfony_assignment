@@ -1,0 +1,54 @@
+{% extends 'Layout/layout.html.twig' %}
+{% block title %}
+    add user
+{% endblock %}
+{% block add_css %}
+    <link href="{{ asset('css/add_user.css') }}" rel="stylesheet">
+{% endblock %}
+{% block page_header %}
+    list of users
+{% endblock %}
+{% block button %}
+    <button class="btn btn-success" id="add" onclick="location.href='{{ path('create_user') }}'">Add</button>
+{% endblock %}
+{% block content %}
+    {% for message in app.flashes('success') %}
+        <div class="flash_notice">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>age</th>
+                    <th>phone number</th>
+                    <th>gender</th>
+                    <th>created date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{user.getId()}}</td>
+                        <td>{{user.getUsername()}}</td>
+                        <td>{{user.getAge()}}</td>
+                        <td>{{user.getPhoneNo()}}</td>
+                        {% if user.getGender() == 1%}
+                            <td>{{ 'Male'|trans }}</td>
+                            {% else %}
+                                <td>Female</td>
+                        {% endif %}
+                        <td>{{ user.getCreated()|date("m/d/Y") }}</td>
+                        <td><button class="btn btn-info edit" onclick="location.href='{{ path('edit_user',{'id':user.getId()}) }}'">Edit</button> </td>
+                        <td><button class="btn btn-danger" onclick="location.href='{{ path('delete_user',{'id':user.getId()}) }}'">Delete</button> </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
+
+

@@ -1,0 +1,15 @@
+{% extends 'Layout/layout.html.twig' %}
+{% block title %}
+    edit user
+{% endblock %}
+{% block add_css %}
+    <link href="{{ asset('css/edit_user.css') }}" rel="stylesheet">
+{% endblock %}
+{% block page_header %}
+    edit a user
+{% endblock %}
+{% block content %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

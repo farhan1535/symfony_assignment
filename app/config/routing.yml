@@ -1,0 +1,16 @@
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+listing:
+    path: /user
+    defaults: {_controller: AppBundle:AddUser:user}
+    requirements:
+        _locale: fr
+create_user:
+    path: /create
+    defaults: {_controller: AppBundle:AddUser:create}
+edit_user:
+    path: /edit
+    defaults: {_controller: AppBundle:AddUser:edit}
+delete_user:
+    path: /delete
+    defaults: {_controller: AppBundle:AddUser:delete}
